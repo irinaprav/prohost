@@ -26,6 +26,7 @@ public class User {
     private Double rating;
 
     @OneToOne
+    @Column(name = "photo")
     private AttachedResource photo;
 
     @Column(name = "phone")
@@ -44,6 +45,22 @@ public class User {
     @Column(name = "status")
     private Boolean status;
 
+
+    public User() {
+    }
+
+    public User(String fullname, String nickname, String email, Double rating, AttachedResource photo, String phone, Date birthday, String description, List<Location> offers, Boolean status) {
+        this.fullname = fullname;
+        this.nickname = nickname;
+        this.email = email;
+        this.rating = rating;
+        this.photo = photo;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.description = description;
+        this.offers = offers;
+        this.status = status;
+    }
 
     public Long getId() {
         return id;
@@ -154,18 +171,5 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id, fullname, nickname, email, rating, photo, phone, birthday, description, offers, status);
-    }
-
-    public User(String fullname, String nickname, String email, Double rating, AttachedResource photo, String phone, Date birthday, String description, List<Location> offers, Boolean status) {
-        this.fullname = fullname;
-        this.nickname = nickname;
-        this.email = email;
-        this.rating = rating;
-        this.photo = photo;
-        this.phone = phone;
-        this.birthday = birthday;
-        this.description = description;
-        this.offers = offers;
-        this.status = status;
     }
 }

@@ -13,9 +13,11 @@ public class Rent {
     private Long id;
 
     @OneToOne
+    @Column(name = "tenant")
     private User tenant;
 
     @OneToOne
+    @Column(name = "location")
     private Location location;
 
     @Column(name = "startDay")
@@ -39,25 +41,15 @@ public class Rent {
     public Rent() {
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Rent rent = (Rent) o;
-        return Objects.equals(id, rent.id) &&
-                Objects.equals(tenant, rent.tenant) &&
-                Objects.equals(location, rent.location) &&
-                Objects.equals(startDay, rent.startDay) &&
-                Objects.equals(endDay, rent.endDay) &&
-                Objects.equals(rating, rent.rating) &&
-                Objects.equals(comment, rent.comment) &&
-                Objects.equals(expDay, rent.expDay) &&
-                Objects.equals(agreement, rent.agreement);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, tenant, location, startDay, endDay, rating, comment, expDay, agreement);
+    public Rent(User tenant, Location location, Date startDay, Date endDay, Double rating, String comment, Date expDay, Boolean agreement) {
+        this.tenant = tenant;
+        this.location = location;
+        this.startDay = startDay;
+        this.endDay = endDay;
+        this.rating = rating;
+        this.comment = comment;
+        this.expDay = expDay;
+        this.agreement = agreement;
     }
 
     public Long getId() {
@@ -132,14 +124,24 @@ public class Rent {
         this.agreement = agreement;
     }
 
-    public Rent(User tenant, Location location, Date startDay, Date endDay, Double rating, String comment, Date expDay, Boolean agreement) {
-        this.tenant = tenant;
-        this.location = location;
-        this.startDay = startDay;
-        this.endDay = endDay;
-        this.rating = rating;
-        this.comment = comment;
-        this.expDay = expDay;
-        this.agreement = agreement;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rent rent = (Rent) o;
+        return Objects.equals(id, rent.id) &&
+                Objects.equals(tenant, rent.tenant) &&
+                Objects.equals(location, rent.location) &&
+                Objects.equals(startDay, rent.startDay) &&
+                Objects.equals(endDay, rent.endDay) &&
+                Objects.equals(rating, rent.rating) &&
+                Objects.equals(comment, rent.comment) &&
+                Objects.equals(expDay, rent.expDay) &&
+                Objects.equals(agreement, rent.agreement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, tenant, location, startDay, endDay, rating, comment, expDay, agreement);
     }
 }

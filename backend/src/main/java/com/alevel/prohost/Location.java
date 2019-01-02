@@ -11,90 +11,72 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "country")
     private String country;
 
+    @Column(name = "region")
     private String region;
 
+    @Column(name = "address")
     private String address;
 
+    @Column(name = "city")
     private String city;
 
+    @Column(name = "type")
     private Type type;
 
+    @Column(name = "capacity")
     private Integer capacity;
 
+    @Column(name = "rating")
     private Integer rating;
 
+    @Column(name = "description")
     private String description;
 
     @ManyToOne
+    @Column(name = "host")
     private User host;
 
     @ManyToMany
+    @Column(name = "tenants")
     private List<User> tenants;
 
+    @Column(name = "priceType")
     private PriceType priceType;
 
+    @Column(name = "amount")
     private Long amount;
 
+    @Column(name = "currency")
     private String currency;
 
+    @Column(name = "photos")
     private List<AttachedResource> photos;
 
+    @Column(name = "status")
     private Boolean status;
 
     public Location() {
     }
 
-    @Override
-    public String toString() {
-        return "Location{" +
-                "id=" + id +
-                ", country='" + country + '\'' +
-                ", region='" + region + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", type=" + type +
-                ", capacity=" + capacity +
-                ", rating=" + rating +
-                ", description='" + description + '\'' +
-                ", host=" + host +
-                ", tenants=" + tenants +
-                ", priceType=" + priceType +
-                ", amount=" + amount +
-                ", currency='" + currency + '\'' +
-                ", photos=" + photos +
-                ", status=" + status +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Location location = (Location) o;
-        return Objects.equals(id, location.id) &&
-                Objects.equals(country, location.country) &&
-                Objects.equals(region, location.region) &&
-                Objects.equals(address, location.address) &&
-                Objects.equals(city, location.city) &&
-                type == location.type &&
-                Objects.equals(capacity, location.capacity) &&
-                Objects.equals(rating, location.rating) &&
-                Objects.equals(description, location.description) &&
-                Objects.equals(host, location.host) &&
-                Objects.equals(tenants, location.tenants) &&
-                priceType == location.priceType &&
-                Objects.equals(amount, location.amount) &&
-                Objects.equals(currency, location.currency) &&
-                Objects.equals(photos, location.photos) &&
-                Objects.equals(status, location.status);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, country, region, address, city, type, capacity, rating, description, host, tenants, priceType, amount, currency, photos, status);
+    public Location(String country, String region, String address, String city, Type type, Integer capacity, Integer rating, String description, User host, List<User> tenants, PriceType priceType, Long amount, String currency, List<AttachedResource> photos, Boolean status) {
+        this.country = country;
+        this.region = region;
+        this.address = address;
+        this.city = city;
+        this.type = type;
+        this.capacity = capacity;
+        this.rating = rating;
+        this.description = description;
+        this.host = host;
+        this.tenants = tenants;
+        this.priceType = priceType;
+        this.amount = amount;
+        this.currency = currency;
+        this.photos = photos;
+        this.status = status;
     }
 
     public Long getId() {
@@ -225,21 +207,31 @@ public class Location {
         this.status = status;
     }
 
-    public Location(String country, String region, String address, String city, Type type, Integer capacity, Integer rating, String description, User host, List<User> tenants, PriceType priceType, Long amount, String currency, List<AttachedResource> photos, Boolean status) {
-        this.country = country;
-        this.region = region;
-        this.address = address;
-        this.city = city;
-        this.type = type;
-        this.capacity = capacity;
-        this.rating = rating;
-        this.description = description;
-        this.host = host;
-        this.tenants = tenants;
-        this.priceType = priceType;
-        this.amount = amount;
-        this.currency = currency;
-        this.photos = photos;
-        this.status = status;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return Objects.equals(id, location.id) &&
+                Objects.equals(country, location.country) &&
+                Objects.equals(region, location.region) &&
+                Objects.equals(address, location.address) &&
+                Objects.equals(city, location.city) &&
+                type == location.type &&
+                Objects.equals(capacity, location.capacity) &&
+                Objects.equals(rating, location.rating) &&
+                Objects.equals(description, location.description) &&
+                Objects.equals(host, location.host) &&
+                Objects.equals(tenants, location.tenants) &&
+                priceType == location.priceType &&
+                Objects.equals(amount, location.amount) &&
+                Objects.equals(currency, location.currency) &&
+                Objects.equals(photos, location.photos) &&
+                Objects.equals(status, location.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, country, region, address, city, type, capacity, rating, description, host, tenants, priceType, amount, currency, photos, status);
     }
 }
