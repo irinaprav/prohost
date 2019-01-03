@@ -52,6 +52,7 @@ public class Location {
     @Column(name = "currency")
     private String currency;
 
+    @OneToMany
     @Column(name = "photos")
     private List<AttachedResource> photos;
 
