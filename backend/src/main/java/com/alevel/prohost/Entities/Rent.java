@@ -1,11 +1,11 @@
-package com.alevel.prohost;
-
+package com.alevel.prohost.Entities;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name = "Rent")
 public class Rent {
 
     @Id
@@ -37,6 +37,26 @@ public class Rent {
 
     @Column(name = "agreement")
     private Boolean agreement;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_User")
+    private User idUser;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_Location")
+    private Location idLocation;
+
+    @Column(name = "startDate")
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+
+    @Column(name = "endDate")
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
+
+    @Column(name = "evictionDay")
+    @Temporal(TemporalType.DATE)
+    private Date evictionDay;
 
     public Rent() {
     }
