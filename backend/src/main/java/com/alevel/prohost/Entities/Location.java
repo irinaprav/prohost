@@ -1,4 +1,4 @@
-package com.alevel.prohost;
+package com.alevel.prohost.Entities;
 
 import javax.persistence.*;
 import java.util.List;
