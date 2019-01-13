@@ -1,11 +1,13 @@
 package com.alevel.prohost.Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Location {
+@Table(name = "location")
+public class Location implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +29,10 @@ public class Location {
     private Type type;
 
     @Column(name = "capacity")
-    private Integer capacity;
+    private Long capacity;
 
     @Column(name = "rating")
-    private Integer rating;
+    private Long rating;
 
     @Column(name = "description")
     private String description;
@@ -62,7 +64,7 @@ public class Location {
     public Location() {
     }
 
-    public Location(String country, String region, String address, String city, Type type, Integer capacity, Integer rating, String description, User host, List<User> tenants, PriceType priceType, Long amount, String currency, List<AttachedResource> photos, Boolean status) {
+    public Location(String country, String region, String address, String city, Type type, Long capacity, Long rating, String description, User host, List<User> tenants, PriceType priceType, Long amount, String currency, List<AttachedResource> photos, Boolean status) {
         this.country = country;
         this.region = region;
         this.address = address;
@@ -128,19 +130,19 @@ public class Location {
         this.type = type;
     }
 
-    public Integer getCapacity() {
+    public Long getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Integer capacity) {
+    public void setCapacity(Long capacity) {
         this.capacity = capacity;
     }
 
-    public Integer getRating() {
+    public Long getRating() {
         return rating;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(Long rating) {
         this.rating = rating;
     }
 
