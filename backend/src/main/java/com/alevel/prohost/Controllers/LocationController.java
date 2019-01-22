@@ -94,7 +94,7 @@ public class LocationController {
         return locationOperations.saveLocation(location);
     }
 
-    @RequestMapping(value = "/location/updateall", method = RequestMethod.GET)
+    @RequestMapping(value = "/location/updateAll", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateAllLocations(Iterable<Location> locations)  {
     }
