@@ -2,16 +2,16 @@ package com.alevel.prohost.Services;
 
 import com.alevel.prohost.Entities.*;
 import com.alevel.prohost.Operations.LocationOperations;
-import com.alevel.prohost.Repositories.LocationRepositories;
+import com.alevel.prohost.Repositories.LocationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class LocationService implements LocationOperations {
 
-    public final LocationRepositories locationRepositories;
+    private final LocationRepository locationRepositories;
 
-    public LocationService(LocationRepositories locationRepositories) {
+    public LocationService(LocationRepository locationRepositories) {
         this.locationRepositories = locationRepositories;
     }
 

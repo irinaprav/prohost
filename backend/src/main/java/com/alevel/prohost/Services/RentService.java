@@ -22,18 +22,13 @@ public class RentService implements RentOperations {
     }
 
     @Override
-    public List<Rent> getByAgreementTrue(Rent agreement) {
-        return rentRepository.getByAgreementTrue(agreement);
+    public List<Rent> getByAgreementTrue() {
+        return rentRepository.getByAgreementTrue();
     }
 
     @Override
     public List<Rent> getByUserAndByAgreementTrue() {
         return rentRepository.getByUserAndByAgreementTrue();
-    }
-
-    @Override
-    public List<Rent> getByRating(Double rating) {
-        return rentRepository.getByRating(rating);
     }
 
     @Override
@@ -43,13 +38,16 @@ public class RentService implements RentOperations {
 
     @Override
     public void updateAll(Iterable<Rent> rents) {
+
     }
 
     @Override
     public void updateRent(Rent rent) {
+
     }
 
     @Override
     public void deleteRentById(Long Id) {
+
     }
 }

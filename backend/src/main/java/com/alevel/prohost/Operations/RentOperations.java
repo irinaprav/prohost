@@ -8,11 +8,9 @@ public interface RentOperations {
 
     List<Rent> getAll();
 
-    List<Rent> getByAgreementTrue(Rent agreement);
+    List<Rent> getByAgreementTrue();
 
     List<Rent> getByUserAndByAgreementTrue();
-
-    List<Rent> getByRating(Double rating);
 
     Long saveRent(Rent newRent);
 
@@ -21,4 +19,6 @@ public interface RentOperations {
     void updateRent(Rent rent);
 
     void deleteRentById(Long Id);
+
+
 }

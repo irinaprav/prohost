@@ -32,42 +32,39 @@ public class RentController {
         return rentOperations.getAll();
     }
 
-    @RequestMapping(value = "/rent/agreement", method = RequestMethod.GET)
+    @RequestMapping(value = "/rent/byAgreementTrue", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Rent> getByAgreementTrue(Rent agreement) {
-        return rentOperations.getByAgreementTrue(agreement);
+    public List<Rent> getByAgreementTrue() {
+        return rentOperations.getByAgreementTrue();
     }
 
-    @RequestMapping(value = "/rent/userAgreement", method = RequestMethod.GET)
+    @RequestMapping(value = "/rent/byUserAndByAgreementTrue", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Rent> getByUserAndByAgreementTrue() {
         return rentOperations.getByUserAndByAgreementTrue();
     }
 
-    @RequestMapping(value = "/rent/rating", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    public List<Rent> getByRating(Double rating) {
-        return rentOperations.getByRating(rating);
-    }
-
     @RequestMapping(value = "/rent/saveRent", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Long saveRent(Rent newRent) {
-        return newRent.getId();
+        return rentOperations.saveRent(newRent);
     }
 
     @RequestMapping(value = "/rent/updateAll", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateAll(Iterable<Rent> rents) {
+
     }
 
     @RequestMapping(value = "/rent/updateRent", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateRent(Rent rent) {
+
     }
 
     @RequestMapping(value = "/rent/deleteRent", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteRentById(Long Id) {
+
     }
 }

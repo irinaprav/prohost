@@ -1,8 +1,6 @@
 package com.alevel.prohost.Operations;
 
-import com.alevel.prohost.Entities.Location;
 import com.alevel.prohost.Entities.Message;
-import com.alevel.prohost.Entities.User;
 
 import java.util.List;
 
@@ -10,15 +8,17 @@ public interface MessageOperations {
 
     List<Message> getAll();
 
-    List<Message> getById(Long id);
+    Message getById(Long id);
 
-    List<Message> getByLocation(Location location);
+    List<Message> getByLocationId(Long idLocation);
 
-    List<Message> getByTenant(User tenant);
+    List<Message> getByTenantId(Long tenantId);
 
-    List<Message> getByHost(User host);
+    List<Message> getByHostId(Long idHost);
 
     List<Message> getByStatusIsRead(Boolean isRead);
+
+    Long saveMessage(Message newMessage);
 
     void updateAll (Iterable<Message> messages);
 

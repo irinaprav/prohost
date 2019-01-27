@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface LocationRepositories extends CrudRepository<Location, Long> {
+public interface LocationRepository extends CrudRepository<Location, Long> {
 
     List<Location> getAll();
 

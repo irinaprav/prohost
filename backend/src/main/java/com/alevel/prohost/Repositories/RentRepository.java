@@ -8,9 +8,8 @@ import java.util.List;
 public interface RentRepository extends CrudRepository<Rent, Long> {
     List<Rent> getAll();
 
-    List<Rent> getByAgreementTrue(Rent agreement);
+    List<Rent> getByAgreementTrue();
 
     List<Rent> getByUserAndByAgreementTrue();
 
-    List<Rent> getByRating(Double rating);
 }
