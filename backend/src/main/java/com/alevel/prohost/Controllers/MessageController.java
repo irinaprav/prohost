@@ -25,61 +25,61 @@ public class MessageController {
         this.messageOperations = messageOperations;
     }
 
-    @RequestMapping(value = "/message/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Message> getAll() {
         return messageOperations.getAll();
     }
 
-    @RequestMapping(value = "/message/byId", method = RequestMethod.GET)
+    @RequestMapping(value = "/byId", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Message getById(Long id) {
         return messageOperations.getById(id);
     }
 
-    @RequestMapping(value = "/message/byLocationId", method = RequestMethod.GET)
+    @RequestMapping(value = "/byLocationId", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Message> getByLocationId(Long idLocation) {
         return messageOperations.getByLocationId(idLocation);
     }
 
-    @RequestMapping(value = "/message/byTenantId", method = RequestMethod.GET)
+    @RequestMapping(value = "/byTenantId", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Message> getByTenantId(Long tenantId) {
         return messageOperations.getByTenantId(tenantId);
     }
 
-    @RequestMapping(value = "/message/byHostId", method = RequestMethod.GET)
+    @RequestMapping(value = "/byHostId", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Message> getByHostId(Long idHost) {
         return messageOperations.getByHostId(idHost);
     }
 
-    @RequestMapping(value = "/message/byStatus", method = RequestMethod.GET)
+    @RequestMapping(value = "/byStatus", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Message> getByStatusIsRead(Boolean isRead) {
         return messageOperations.getByStatusIsRead(isRead);
     }
 
-    @RequestMapping(value = "/message/saveMessage", method = RequestMethod.GET)
+    @RequestMapping(value = "/saveMessage", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public Long saveMessage(Message newMessage) {
         return messageOperations.saveMessage(newMessage);
     }
 
-    @RequestMapping(value = "/message/updateAll", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateAll", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateAll(Iterable<Message> messages) {
 
     }
 
-    @RequestMapping(value = "/message/updateMessage", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateMessage", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateMessage(Message message) {
 
     }
 
-    @RequestMapping(value = "/message/deleteMessage", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteMessage", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteMessageById(Long id) {
 

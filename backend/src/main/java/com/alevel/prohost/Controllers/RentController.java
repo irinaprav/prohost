@@ -26,43 +26,43 @@ public class RentController {
         this.rentOperations = rentOperations;
     }
 
-    @RequestMapping(value = "/rent/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Rent> getAll() {
         return rentOperations.getAll();
     }
 
-    @RequestMapping(value = "/rent/byAgreementTrue", method = RequestMethod.GET)
+    @RequestMapping(value = "/byAgreementTrue", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Rent> getByAgreementTrue() {
         return rentOperations.getByAgreementTrue();
     }
 
-    @RequestMapping(value = "/rent/byUserAndByAgreementTrue", method = RequestMethod.GET)
+    @RequestMapping(value = "/byUserAndByAgreementTrue", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Rent> getByUserAndByAgreementTrue() {
         return rentOperations.getByUserAndByAgreementTrue();
     }
 
-    @RequestMapping(value = "/rent/saveRent", method = RequestMethod.GET)
+    @RequestMapping(value = "/saveRent", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public Long saveRent(Rent newRent) {
         return rentOperations.saveRent(newRent);
     }
 
-    @RequestMapping(value = "/rent/updateAll", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateAll", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateAll(Iterable<Rent> rents) {
 
     }
 
-    @RequestMapping(value = "/rent/updateRent", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateRent", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateRent(Rent rent) {
 
     }
 
-    @RequestMapping(value = "/rent/deleteRent", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteRent", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteRentById(Long Id) {
 

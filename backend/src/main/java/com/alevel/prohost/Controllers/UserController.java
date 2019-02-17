@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,37 +25,38 @@ public class UserController {
         this.userOperations = userOperations;
     }
 
-    @RequestMapping("/user/all")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<User> getAllUsers() {
         return userOperations.getAllUsers();
     }
 
-    @RequestMapping("/user/userbyid")
+    @RequestMapping(value = "/userById", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public User getUserById(Long id) {
         return userOperations.getUserById(id);
     }
 
-    @RequestMapping("/user/nick")
+    @RequestMapping(value = "/nickname", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public User getUserByNickname(String nickname) {
         return userOperations.getUserByNickname(nickname);
     }
 
-    @RequestMapping("/user/newuser")
+    @RequestMapping(value = "/newUser", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public Long saveUser(User newUser) {
         return newUser.getId();
     }
-    @RequestMapping("/user/update")
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
-    public void updateUser(User updatedUser){
+    public void updateUser(User updatedUser) {
     }
 
-    @RequestMapping("/user/delete")
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void deleteUser(Long id){
+    public void deleteUser(Long id) {
 
     }
 

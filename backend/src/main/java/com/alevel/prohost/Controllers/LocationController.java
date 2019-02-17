@@ -27,99 +27,87 @@ public class LocationController {
         this.locationOperations = locationOperations;
     }
 
-    @RequestMapping("/location/all")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Location> getAll(){
-        return locationOperations.getAll() ;
+    public List<Location> getAll() {
+        return locationOperations.getAll();
 
     }
 
-    @RequestMapping(value = "/location/active", method = RequestMethod.GET)
+    @RequestMapping(value = "/active", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Location> getByStatusTrue(){
+    public List<Location> getByStatusTrue() {
         return locationOperations.getByStatusTrue();
     }
 
-    @RequestMapping(value = "/location/type", method = RequestMethod.GET)
+    @RequestMapping(value = "/type", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Location> getByType (Type type){
+    public List<Location> getByType(Type type) {
         return locationOperations.getByType(type);
     }
 
-    @RequestMapping(value = "/location/&photos", method = RequestMethod.GET)
+    @RequestMapping(value = "/photos", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<AttachedResource> getPhotosById(Long id){
+    public List<AttachedResource> getPhotosById(Long id) {
         return locationOperations.getPhotosById(id);
     }
 
-    @RequestMapping(value = "/location/pricetype", method = RequestMethod.GET)
+    @RequestMapping(value = "/priceType", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Location> getByPriceType(PriceType priceType){
+    public List<Location> getByPriceType(PriceType priceType) {
         return locationOperations.getByPriceType(priceType);
     }
 
-    @RequestMapping(value = "/location/capacity", method = RequestMethod.GET)
+    @RequestMapping(value = "/capacity", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Location> getByCapacity(Long capacity) {
         return locationOperations.getByCapacity(capacity);
     }
 
-    @RequestMapping(value = "/location/amountbetween", method = RequestMethod.GET)
+    @RequestMapping(value = "/amountBetween", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Location> getByAmountBetween(Long min, Long max){
+    public List<Location> getByAmountBetween(Long min, Long max) {
         return locationOperations.getByAmountBetween(min, max);
     }
 
-    @RequestMapping(value = "/location/bytenants", method = RequestMethod.GET)
+    @RequestMapping(value = "/byTenants", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<User> getTenantsById(Long id){
+    public List<User> getTenantsById(Long id) {
         return locationOperations.getTenantsById(id);
     }
 
-    @RequestMapping(value = "/location/byhost", method = RequestMethod.GET)
+    @RequestMapping(value = "/byHost", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Location> getByHostId (Long id){
+    public List<Location> getByHostId(Long id) {
         return locationOperations.getByHostId(id);
     }
 
-    @RequestMapping(value = "/location/byid", method = RequestMethod.GET)
+    @RequestMapping(value = "/byId", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Location getLocationById(Long id) {
         return locationOperations.getLocationById(id);
     }
 
-    @RequestMapping(value = "/location/save", method = RequestMethod.GET)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public Long saveLocation(Location newLocation) {
         return locationOperations.saveLocation(newLocation);
     }
 
-    @RequestMapping(value = "/location/updateAll", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateAll", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
-    public void updateAllLocations(Iterable<Location> locations)  {
+    public void updateAllLocations(Iterable<Location> locations) {
     }
 
-    @RequestMapping(value = "/location/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
-    public void updateLocation(Location location){}
+    public void updateLocation(Location location) {
+    }
 
-    @RequestMapping(value = "/location/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void deleteLocationById(Long id){}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void deleteLocationById(Long id) {
+    }
 
 
 }
